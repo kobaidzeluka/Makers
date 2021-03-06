@@ -1,11 +1,11 @@
 //import liraries
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, ImageBackground } from "react-native";
 import Card from "./../components/Card";
 import Loading from "../components/Loading";
 import Screen from './../components/Screen';
 
-const url = "https://us-central1-js04-b4877.cloudfunctions.net/api/products";
+const url = "https://us-central1-js04-b4877.cloudfunctions.net/api/products?_sort=id&_order=desc";
 
 // create a component
 const HomeScreen = ({navigation}) => {
@@ -58,7 +58,8 @@ const HomeScreen = ({navigation}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal:20
+    marginHorizontal:20,
+    backgroundColor:'#f8f4f4',
   },
 });
 
