@@ -1,6 +1,6 @@
 //import liraries
-import React from "react";
-import { View, Text, StyleSheet, Platform } from "react-native";
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
 
 // create a component
 const AppText = ({ children, style }) => {

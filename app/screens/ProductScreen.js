@@ -35,7 +35,7 @@ const ProductScreen = () => {
   }
 
   return (
-    <Screen style={styles.container}>
+    <Screen>
       <FlatList
       refreshing={refreshing}
       onRefresh={getProduct}
@@ -60,10 +60,7 @@ const ProductScreen = () => {
 
 // define your styles
 const styles = StyleSheet.create({
-    container: {
-        marginHorizontal:20,
-        backgroundColor: '#f8f4f4',
-    },
+   
 });
 
 //make this component available to the app

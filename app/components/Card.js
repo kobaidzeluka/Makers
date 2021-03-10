@@ -1,22 +1,24 @@
 //import liraries
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import AppText from "./AppText";
-
+import Screen from "./Screen";
 // create a component
 const Card = ({ image, subTitle, title, seller, onPress }) => {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.card}>
-        <Image style={styles.image} source={{ uri: image }} />
-        <View style={styles.detailsContainer}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}$</AppText>
-          <AppText style={styles.seller}>Seller: {seller}</AppText>
+    <Screen>
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.card}>
+          <Image style={styles.image} source={{ uri: image }} />
+          <View style={styles.detailsContainer}>
+            <AppText style={styles.title}>{title}</AppText>
+            <AppText style={styles.subTitle}>{subTitle}$</AppText>
+            <AppText style={styles.seller}>Seller: {seller}</AppText>
+          </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableOpacity>
+    </Screen>
   );
 };
 
@@ -24,10 +26,19 @@ const Card = ({ image, subTitle, title, seller, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
-    backgroundColor: "#FFF",
+    backgroundColor: "#EC7430",
     marginBottom: 20,
-    overflow: "hidden",
-    paddingTop:10,
+    marginHorizontal: 15,
+    paddingTop: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+
+    elevation: 2,
   },
   title: {
     marginBottom: 7,
@@ -36,7 +47,7 @@ const styles = StyleSheet.create({
   },
 
   subTitle: {
-    color: "#EC7430",
+    color: '#333637',
     fontSize: 20,
     marginBottom: 5,
   },
@@ -46,8 +57,9 @@ const styles = StyleSheet.create({
     color: "#333637",
   },
   image: {
-    width: "100%",
+    width: "90%",
     height: 300,
+    alignSelf:'center'
   },
 
   detailsContainer: {

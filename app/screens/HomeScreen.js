@@ -38,6 +38,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <Screen style={styles.container}>
       <FlatList
+      backgroundColor='#333637'
         refreshing={refreshing}
         onRefresh={getProduct}
         showsVerticalScrollIndicator={false}
@@ -54,13 +55,13 @@ const HomeScreen = ({ navigation }) => {
           />
         )}
       />
-    </Screen>
+      </Screen>
+  
   );
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 20,
-    backgroundColor: "#f8f4f4",
+    backgroundColor: "#333637",
   },
 });
 

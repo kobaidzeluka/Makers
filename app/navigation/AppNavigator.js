@@ -9,7 +9,19 @@ import FeedNavigator from "./FeedNavigator";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => (
-  <Tab.Navigator tabBarOptions={{ showLabel: false }}>
+  <Tab.Navigator
+    tabBarOptions={{
+      showLabel: false,
+      style: {
+        height: 60,
+        borderTopColor: "#333637",
+        elevation: 0,
+        backgroundColor:'#333637'
+      },
+      activeTintColor: "#ec7430",
+      inactiveTintColor: "#ccc",
+    }}
+  >
     <Tab.Screen
       options={{
         tabBarIcon: ({ color, size }) => (

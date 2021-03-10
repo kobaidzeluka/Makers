@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, FlatList, ActivityIndicator, Text } from "react-native";
 import Card from "../components/Card";
 import axiosService from "../config/axiosService";
-import Screen from './../components/Screen';
+import Screen from "./../components/Screen";
 
 export default class ProductListScreen extends Component {
   state = {
@@ -76,32 +76,38 @@ export default class ProductListScreen extends Component {
 
   render() {
     return !this.state.loading ? (
-        <Screen>
-        
-      <FlatList
-        contentContainerStyle={{
-          width: "100%",
-          backgroundColor:'#fff'
-        }}
-        // numColumns={1}
-        data={this.state.data}
-        renderItem={({ item }) => (
-          <Card title={item.title} image={item.image} seller={item.seller} />
-        )}
-        keyExtractor={(item) => item.id.toString()}
-        ListFooterComponent={this.renderFooter}
-        onRefresh={this.handleRefresh}
-        refreshing={this.state.refreshing}
-        onEndReached={this.handleLoadMore}
-        onEndReachedThreshold={0.5}
-        initialNumToRender={10}
-      />
+      <Screen>
+        <FlatList
+          contentContainerStyle={{
+            width: "100%",
+            backgroundColor: "#fff",
+          }}
+          // numColumns={1}
+          data={this.state.data}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              image={item.image}
+              subTitle={item.price}
+              seller={item.seller}
+            />
+          )}
+          keyExtractor={(item) => item.id.toString()}
+          ListFooterComponent={this.renderFooter}
+          onRefresh={this.handleRefresh}
+          refreshing={this.state.refreshing}
+          onEndReached={this.handleLoadMore}
+          onEndReachedThreshold={0.5}
+          initialNumToRender={10}
+        />
       </Screen>
     ) : (
-      <View>
-        <Text style={{ alignSelf: "center" }}>Loading Product</Text>
-        <ActivityIndicator />
-      </View>
+      <Screen>
+        <View>
+          <Text style={{ alignSelf: "center" }}>Loading Product</Text>
+          <ActivityIndicator />
+        </View>
+      </Screen>
     );
   }
 }

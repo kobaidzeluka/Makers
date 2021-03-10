@@ -27,7 +27,6 @@ const SearchScreen = () => {
   return (
     <Screen>
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={getResult} />
-      <AppText>we have found {result.length} items</AppText>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={result.slice(0, 10)}
